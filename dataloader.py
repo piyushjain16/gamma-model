@@ -45,7 +45,8 @@ class lowlight_loader(data.Dataset):
 		data_lowlight = Image.open(data_lowlight_path)
 		
 		# data_lowlight = data_lowlight.resize((self.size,self.size), Image.LANCZOS)
-		data_lowlight = data_lowlight.resize((600,400), Image.LANCZOS)
+		# data_lowlight = data_lowlight.resize((600,400), Image.LANCZOS) # for ffd net
+		data_lowlight = data_lowlight.resize((2400,1600), Image.LANCZOS) # for swinIR large
 
 		data_lowlight = (np.asarray(data_lowlight)/255.0) 
 		data_lowlight = torch.from_numpy(data_lowlight).float()
